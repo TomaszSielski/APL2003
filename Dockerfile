@@ -14,6 +14,7 @@ COPY . .
 WORKDIR "/src/."
 RUN dotnet build "APL2003.csproj" -c $configuration -o /app/build
 
+
 FROM build AS publish
 ARG configuration=Release
 RUN dotnet publish "APL2003.csproj" -c $configuration -o /app/publish /p:UseAppHost=false
